@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "iptv-c9pn",
+  "private_key_id": "52437d9224f8d78dbb1bfee0129b090bef1fae96",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDk6jeuyMAzit0t\nZe7qIXCdI/WnLK5RJIVjAfGNQJKOZZPHULu/shrEQ1V1HojjmGMbsDz29Pk5zWvc\nMsuA0lUMWYWKJi6br3P9Sor0ngoDVsXksWrbo2Rv2DpinmBgLYE3zaduVwIQzlbo\n54iGCeVgj4kVw0PV9XVhZ+haJvW/mzdz3EqfAGK5Gx/Wp042iNdvU9grBRbiICO/\n90XB5YNPrbC4SpFRLYIE+I234vpl9V6Tvmd5dMa8OEIH4vvN3wlIO27fy0P9tcio\nxNzFsE36D32i8VryW6thCZ7AjcTLQyBZ+G++2upDkAKDnhi67PDW/mhLo0GVPZ4F\n9h73dZfXAgMBAAECggEANJQrmATaSLxzkvLfzn1BzYYt7WkQ3OhjjtsqbURQpU5l\nhBliFmTFSyEgJteNn6En2ns/dYXNHN63EIvGPF+TU1PYnWOpvu6s2JfflNIcAKpU\np/OsVKiR8DKdLnusLUsma/fbpjdr7QpH4hUUQZ1SRzyQwyPnl+RaQrZIIzThq1F/\nUgcsOlvpQ/bfze/Zliy3m7EkrxWIK9/Kz0k+5YFX3BNL5CkUo+EcQxfTRIyJdQU3\nZw0d2GfucBYHW9GCB3Ow6Kf+nd8pMoAunfJFXg3ozZq38099A5mKGLXa6TlqyUdN\nGOwgYIMxit578NNLNgeKXSNiEhqBggch4jhaHlBb0QKBgQD1xjcXBDPH2/zoot7H\nu8QheQrtOASw/6Zwjfz/q0QT1rFQUD0uZZhWpD4JmGAAkJX8Z2idSyt7C8/SpC8p\nLgz17fIBSLPCBMCiKWiOk0ycoKJtCGYPxP3RKZD2hAdBFs8GAVrgFci5O/qTY0NV\nxjguLfH9AjwrV+slCsqGIMEqjwKBgQDucG4lncGKQBxmXV7JWVhmS9lh2ve0CjzF\nUqnQBBbgbFSOZsb7ibbOWTF0NzAnXhxr4R+KYVgGqLrkdyBPb64D+Qt8SUGqdDKk\n57tZkZZop4udwf3t8hba6OJ+26rbeyPO+B3JIb1yYoR2+misHE03uNoX08IljarX\nG0ZTWwICOQKBgHDTzBqO3U6U2SfbDTbYJhPPw4pfOxgeZMQrCsg8UYZh+wiJrWyN\nS0ALKkexYfEgbxpuRoJfLdjQ9VkX8maPM3f7AixAufUJxX0sUUmSqYsF20r+ngwD\nPRo2YMwqlEH3PJbfLF7O4VTYChJ7cUABPW1Fvl+OFR04wURCDfNBOixVAoGABaos\nI76ku3kcc54iQ1xZCk0hA/8kxWU83l9BY4zFUl2ggKWWcqFp82sRDrbE8Rp+SF3X\n1vzLD5Vwoz7lSJ3Zn4SKLlC7O6Z5EYvj2pPn4+KfIYdbVgzbWCYSQ3tKit5ZEnC4\nnG+txYrrpLv8QqKFfx5oKArC4QuFlIi0WgSefpkCgYEAwAa7uJ5DKJ4wHObEY2Qt\n1KrOJL5TEk4qEF2Ek6UH/8+r+3yVck3VzP2LdbuaY9eTlPkyKSwuDNjN8wFr7zUr\nvmjvcL+Y806RANRYEFN6OFASEtRWoKutI/9yI2yN4/1+qxdrn2pFoFPMjV28nxYU\nke3ERCWVlBOqDtKidsVbhKc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "iptv-603@iptv-c9pn.iam.gserviceaccount.com",
+  "client_id": "112997927823071611975",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/iptv-603%40iptv-c9pn.iam.gserviceaccount.com"
+}
