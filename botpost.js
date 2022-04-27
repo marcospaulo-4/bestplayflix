@@ -6,14 +6,15 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const http = require('http');
 const port = process.env.PORT || 8000;
-
+const port_get = process.env.PORT || 3333;
+const app2 = express();
 const app = express();
 const server = http.createServer(app);
+const server2 = http.createServer(app2);
 const ZDGPath = './ZDGSessions/';
 const ZDGAuth = 'auth_info.json';
 const {WebhookClient} = require('@google-cloud/dialogflow');
 const dialogflow = require('@google-cloud/dialogflow');
-const app2 = express();
 app2.use(express.json());
 
 app.use(express.json());
@@ -960,10 +961,12 @@ const ZDGConnection = async () => {
 ZDGConnection()
 
 
-app2.get('/status',(request,response)=>{
-   return response.json({message : 'servidor esta rodando tranquilo'})
+app2.get('/status',(request,resposta_status)=>{
+   return resposta_status.json({message : 'servidor esta rodando tranquilo botpost'})
 })
-app2.listen(3333)
+server2.listen(port_get,function() {
+   console.log('status do servidor rodando na porta: ' + port_get);
+ });
 
 server.listen(port, function() {
    console.log('© BOT-ZDG - Servidor rodando na porta: ' + port);
