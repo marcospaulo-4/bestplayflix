@@ -13,7 +13,8 @@ const ZDGPath = './ZDGSessions/';
 const ZDGAuth = 'auth_info.json';
 const {WebhookClient} = require('@google-cloud/dialogflow');
 const dialogflow = require('@google-cloud/dialogflow');
-
+const app2 = express();
+app2.use(express.json());
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -163,9 +164,8 @@ const ZDGConnection = async () => {
       })
 
 
-   app.get('/status',(request,response)=>{
-      return response.json({message : 'servidor esta rodando tranquilo'})
-   })
+
+
 
 
 
@@ -958,6 +958,12 @@ const ZDGConnection = async () => {
 }
 
 ZDGConnection()
+
+
+app2.get('/status',(request,response)=>{
+   return response.json({message : 'servidor esta rodando tranquilo'})
+})
+app2.listen(3333)
 
 server.listen(port, function() {
    console.log('© BOT-ZDG - Servidor rodando na porta: ' + port);
