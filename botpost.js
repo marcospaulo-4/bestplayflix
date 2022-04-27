@@ -384,11 +384,11 @@ const ZDGConnection = async () => {
       const id3 = req.body.id3;
       const displaytext1 = req.body.displaytext1;
       const displaytext2 = req.body.displaytext2;
-      const displaytext3 = req.body.displaytext3;
+      // const displaytext3 = req.body.displaytext3;
       const buttons = [
          { buttonId: id1, buttonText: { displayText: displaytext1 }, type: 1 },
          { buttonId: id2, buttonText: { displayText: displaytext2 }, type: 1 },
-         { buttonId: id3, buttonText: { displayText: displaytext3 }, type: 1 },
+         // { buttonId: id3, buttonText: { displayText: displaytext3 }, type: 1 },
       ]
       const buttonsMessage = {
          text: text,
