@@ -272,6 +272,74 @@ const ZDGConnection = async () => {
 
    });
 
+
+      // Send message
+      app.post('/message-disparo', [
+         body('jid').notEmpty(),
+         body('message').notEmpty(),
+      ], async (req, res) => {
+         const errors = validationResult(req).formatWith(({
+         msg
+         }) => {
+         return msg;
+         });
+         if (!errors.isEmpty()) {
+         return res.status(422).json({
+            status: false,
+            message: errors.mapped()
+         });
+         }
+      
+         const jid = req.body.jid;
+         const numberDDI = jid.substr(0, 2);
+         const numberDDD = jid.substr(2, 2);
+         const numberUser = jid.substr(-8, 8);
+         const message = req.body.message;
+   
+         if (numberDDI !== '55') {
+            ZDGsock.sendMessage(jid, { text: message }).then(response => {
+               res.status(200).json({
+                  status: true,
+                  response: response
+               });
+               }).catch(err => {
+               res.status(500).json({
+                  status: false,
+                  response: err
+               });
+               });
+         }
+         if (numberDDI === '55' && numberDDD <= 30) {
+            const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
+            ZDGsock.sendMessage(numberZDG, { text: message }).then(response => {
+               res.status(200).json({
+                  status: true,
+                  response: response
+               });
+               }).catch(err => {
+               res.status(500).json({
+                  status: false,
+                  response: err
+               });
+               });
+         }
+         if (numberDDI === '55' && numberDDD > 30) {
+            const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
+            ZDGsock.sendMessage(numberZDG, { text: message }).then(response => {
+               res.status(200).json({
+                  status: true,
+                  response: response
+               });
+               }).catch(err => {
+               res.status(500).json({
+                  status: false,
+                  response: err
+               });
+               });
+         }
+   
+      });
+
    // Send button
    app.post('/button', [
       body('jid').notEmpty(),
