@@ -163,7 +163,7 @@ const ZDGConnection = async () => {
       })
 
 
-      app.get('/',(request,response)=>{
+      app.get('/status',(request,response)=>{
          return response.json({message : 'servidor esta rodando tranquilo'})
      })
      app.listen(8000)
