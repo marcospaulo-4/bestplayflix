@@ -90,12 +90,13 @@ const ZDGGroupCheck = (jid) => {
 const ZDGUpdate = (ZDGsock) => {
    ZDGsock.on('connection.update', ({ connection, lastDisconnect, qr }) => {
       if (qr){
-         console.log('© BOT-ZDG - Qrcode: ', qr);
+         console.log(' Qrcode: ', qr);
       };
       if (connection === 'close') {
          const ZDGReconnect = lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut
          if (ZDGReconnect) ZDGConnection()
-         console.log(`© BOT-ZDG - CONEXÃO FECHADA! RAZÃO: ` + DisconnectReason.loggedOut.toString());
+         status_server = ` CONEXÃO FECHADA! RAZÃO: ` + DisconnectReason.loggedOut.toString()
+         console.log(` CONEXÃO FECHADA! RAZÃO: ` + DisconnectReason.loggedOut.toString());
          if (ZDGReconnect === false) {
             const removeAuth = ZDGPath + ZDGAuth
             unlink(removeAuth, err => {
@@ -104,7 +105,8 @@ const ZDGUpdate = (ZDGsock) => {
          }
       }
       if (connection === 'open'){
-         console.log('© BOT-ZDG -CONECTADO')
+         status_server = ' CONECTADO'
+         console.log(' CONECTADO')
       }
    })
 }
@@ -122,7 +124,7 @@ const ZDGConnection = async () => {
       version,
       connectTimeoutMs: 60_000,
       async getMessage(key) {
-         return { conversation: 'botzg' };
+         // return { conversation: 'botzg' };
       },
    }
    const ZDGsock = makeWaSocket(config);
@@ -396,7 +398,7 @@ const ZDGConnection = async () => {
       }
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, buttonsMessage).then(response => {
+         ZDGsock.sendMessage(jid, buttonsMessage).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -410,7 +412,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, buttonsMessage).then(response => {
+         ZDGsock.sendMessage(numberZDG, buttonsMessage).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -424,7 +426,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, buttonsMessage).then(response => {
+         ZDGsock.sendMessage(numberZDG, buttonsMessage).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -487,7 +489,7 @@ const ZDGConnection = async () => {
       };
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, link).then(response => {
+         ZDGsock.sendMessage(jid, link).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -501,7 +503,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, link).then(response => {
+         ZDGsock.sendMessage(numberZDG, link).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -515,7 +517,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, link).then(response => {
+         ZDGsock.sendMessage(numberZDG, link).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -566,7 +568,7 @@ const ZDGConnection = async () => {
 
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, ZDGImagem).then(response => {
+         ZDGsock.sendMessage(jid, ZDGImagem).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -580,7 +582,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, ZDGImagem).then(response => {
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -594,7 +596,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, ZDGImagem).then(response => {
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -646,7 +648,7 @@ const ZDGConnection = async () => {
 
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, ZDGImagem).then(response => {
+         ZDGsock.sendMessage(jid, ZDGImagem).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -660,7 +662,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, ZDGImagem).then(response => {
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -674,7 +676,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, ZDGImagem).then(response => {
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -741,7 +743,7 @@ const ZDGConnection = async () => {
 
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, {
+         ZDGsock.sendMessage(jid, {
             contacts: {
                displayName: contact.fullName,
                contacts: [{ vcard, displayName: contact.fullName }]
@@ -760,7 +762,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, {
+         ZDGsock.sendMessage(numberZDG, {
                contacts: {
                   displayName: contact.fullName,
                   contacts: [{ vcard, displayName: contact.fullName }]
@@ -779,7 +781,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, {
+         ZDGsock.sendMessage(numberZDG, {
             contacts: {
                displayName: contact.fullName,
                contacts: [{ vcard, displayName: contact.fullName }]
@@ -837,7 +839,7 @@ const ZDGConnection = async () => {
 
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, sendDoc).then(response => {
+         ZDGsock.sendMessage(jid, sendDoc).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -851,7 +853,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, sendDoc).then(response => {
+         ZDGsock.sendMessage(numberZDG, sendDoc).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -865,7 +867,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, sendDoc).then(response => {
+         ZDGsock.sendMessage(numberZDG, sendDoc).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -910,7 +912,7 @@ const ZDGConnection = async () => {
 
 
       if (numberDDI !== '55') {
-         ZDGSendMessage(jid, sendAudio).then(response => {
+         ZDGsock.sendMessage(jid, sendAudio).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -924,7 +926,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD <= 30) {
          const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, sendAudio).then(response => {
+         ZDGsock.sendMessage(numberZDG, sendAudio).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -938,7 +940,7 @@ const ZDGConnection = async () => {
       }
       if (numberDDI === '55' && numberDDD > 30) {
          const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-         ZDGSendMessage(numberZDG, sendAudio).then(response => {
+         ZDGsock.sendMessage(numberZDG, sendAudio).then(response => {
             res.status(200).json({
                status: true,
                response: response
@@ -962,7 +964,10 @@ ZDGConnection()
 
 
 app2.get('/status',(request,resposta_status)=>{
-   return resposta_status.json({message : 'servidor esta rodando tranquilo botpost'})
+   // return resposta_status.json({message : 'servidor esta rodando tranquilo botpost'})
+   return resposta_status.json({message :  status_server})
+
+
 })
 server2.listen(port_get,function() {
    console.log('status do servidor rodando na porta: ' + port_get);
