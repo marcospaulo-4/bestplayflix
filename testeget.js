@@ -3,7 +3,7 @@ const express = require ('express')
 const app = express();
 app.use(express.json());
 
-app.get('/',(request,response)=>{
+app.get('/status',(request,response)=>{
     return response.json({message : 'servidor esta rodando'})
 })
 

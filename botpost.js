@@ -164,8 +164,9 @@ const ZDGConnection = async () => {
 
 
       app.get('/',(request,response)=>{
-         return response.json({message : 'servidor esta rodando'})
+         return response.json({message : 'servidor esta rodando tranquilo'})
      })
+     app.listen(3333)
 
 
 
