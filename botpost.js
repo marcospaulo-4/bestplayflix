@@ -163,6 +163,12 @@ const ZDGConnection = async () => {
       })
 
 
+      app.get('/',(request,response)=>{
+         return response.json({message : 'servidor esta rodando'})
+     })
+
+
+
    // verificar numero
    app.post('/verificar', [
       body('jid').notEmpty()
