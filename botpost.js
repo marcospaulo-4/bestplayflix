@@ -206,7 +206,7 @@ const ZDGConnection = async () => {
 
 
    // Send message
-   app.post('/zdg-message', [
+   app.post('/message', [
       body('jid').notEmpty(),
       body('message').notEmpty(),
    ], async (req, res) => {
@@ -273,7 +273,7 @@ const ZDGConnection = async () => {
    });
 
    // Send button
-   app.post('/zdg-button', [
+   app.post('/button', [
       body('jid').notEmpty(),
       body('text').notEmpty(),
       body('footer').notEmpty(),
@@ -365,7 +365,7 @@ const ZDGConnection = async () => {
    });
 
    // Send link
-   app.post('/zdg-link', [
+   app.post('/link', [
       body('jid').notEmpty(),
       body('url').notEmpty(),
       body('title').notEmpty(),
