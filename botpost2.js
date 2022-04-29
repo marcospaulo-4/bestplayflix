@@ -146,29 +146,29 @@ const ZDGConnection = async () => {
 
    }
 
-   ZDGsock.ev.on('messages.upsert', async ({ messages, type }) => {
-      const msg = messages[0]
-      const jid = msg.key.remoteJid
+   // ZDGsock.ev.on('messages.upsert', async ({ messages, type }) => {
+   //    const msg = messages[0]
+   //    const jid = msg.key.remoteJid
       
-         if (!ZDGGroupCheck(jid) && !msg.key.fromMe && jid !== 'status@broadcast') {
-            console.log("© BOT-ZDG - MENSAGEM : ", msg)
-            // ZDGsock.sendReadReceipt(jid, msg.key.participant, [msg.key.id]) 
-            let textoResposta = await executeQueries("iptv-c9pn", jid, [JSON.stringify(msg.message.conversation)], 'pt-BR');
+   //       if (!ZDGGroupCheck(jid) && !msg.key.fromMe && jid !== 'status@broadcast') {
+   //          console.log("© BOT-ZDG - MENSAGEM : ", msg)
+   //          // ZDGsock.sendReadReceipt(jid, msg.key.participant, [msg.key.id]) 
+   //          let textoResposta = await executeQueries("iptv-c9pn", jid, [JSON.stringify(msg.message.conversation)], 'pt-BR');
             
             
-               console.log('mensagem recebida ',textoResposta)
+   //             console.log('mensagem recebida ',textoResposta)
    
    
-               if (textoResposta === ''  ) {
-                  console.log('sem resposta')
-               }
-               else{
-                  console.log('mensagem recebida ')
-               await ZDGSendMessage(jid, {text: textoResposta})
-                  .then(result => console.log('RESULT ZDG: ', result))
-                  .catch(err => console.log('ERRO ZDG: ', err))
-            }}
-      })
+   //             if (textoResposta === ''  ) {
+   //                console.log('sem resposta')
+   //             }
+   //             else{
+   //                console.log('mensagem recebida ')
+   //             await ZDGSendMessage(jid, {text: textoResposta})
+   //                .then(result => console.log('RESULT ZDG: ', result))
+   //                .catch(err => console.log('ERRO ZDG: ', err))
+   //          }}
+   //    })
 
    // verificar numero
    app.post('/verificar', [

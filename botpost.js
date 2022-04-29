@@ -166,12 +166,6 @@ const ZDGConnection = async () => {
             }}
       })
 
-
-
-
-
-
-
    // verificar numero
    app.post('/verificar', [
       body('jid').notEmpty()
@@ -611,7 +605,6 @@ const ZDGConnection = async () => {
 
    });
 
-
    // Send texto e imagem
    app.post('/video-texto', [
       body('jid').notEmpty(),
@@ -801,7 +794,6 @@ const ZDGConnection = async () => {
 
    });
 
-
    // Send PDF
    app.post('/PDF', [
       body('jid').notEmpty(),
@@ -957,7 +949,7 @@ const ZDGConnection = async () => {
    
    });
 
-
+   
 }
 
 ZDGConnection()
