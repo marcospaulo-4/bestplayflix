@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "streamplay-pt-ktpc",
+  "private_key_id": "898861ea584628e3158159d1349d2fb1f3aa3e12",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCpAGZ9FBu9OOYe\nn0AWrMTy+7PnlWTeVsSjHkmtRCpBhfRAdIqzazYIv+ue7mRW+3768JuLPrUKcHHj\nVrIcTGub5hKn/noE/Y5L30+IknfiZN4tX7kvqszJwlEDko5SXjjfTYCjbCgHEM7i\ncGMn/QtyqDSfvgoL38AH75PmD7lPlMdlxMipqmmMFP5c9yFHbDKWXxt+NfMoNxd4\n52/xGPGV7PzDyxQZAEm2uUA4NlkM3fLia6GPTWJW0VbEqw2peQGVllH1ncoN9Anm\nYuob6oEq7x0b6PyBucoKpB6yTZrozvZqLP3nP06O6H26XmlY9tdEF6z7YoAQTvrw\nDgljdjV/AgMBAAECggEAAW+uzSnK4rEHiLJ9LQufkt6KJedDfhdOWk7Na9NyHFrp\nYdyVSuoxgXdUnnb+QnHIqAwq9sZZ4zJ1PmOqdrUJjoyGPiG4a69NspVw1DrN5p9J\nblwnRHJ5Ht/WMME3IhgBGcvtlqTlKpdFz6LGR58We3O8+J60rCbT81TII8LCphyC\n6/p/pAiVC3q9lIFAH3OQApwVmQw9/Y7a5ci5Ef4aEICIjvnJ9ZOitmOQEhUDcfPB\nyA6xz14AS52nITYES5pYnrtHy31795iJKiRHLlLamOkhLZ24/sNZk1GuGyQIJQk/\nF3a2J5wP5xLyDonfhrI446JwHdzckSmsJGJubLpU1QKBgQDovXNpEchtQGT7UUMc\n8n81vZFITdxF+r11xN3xPoU7WE98SOl9pgmw7H7hWQEnVUX9Ko4zhvlXp1DI8bdV\nLHRCBgPKjDML060cXcU8W0AwVXEstpDo8hibQMymPRfNaAqHah0pDZ6gGjJEXWtc\nW+WpK3xEHsF+V45oYWfJIj48GwKBgQC55DqweU5/2EPk7ylJfYCvbUh7ajcIgayY\nO292Xv98HFa8kKlMGKnEPp5MSDnPBOsLwje7YCivWUiYhPobTOA+LzuxNLTqrupE\n0BmN+dPbXkA7GIYUmBjG2WHij+W90EmvAc6V9nBaZzUFxNvLUjb74M9+PAM/RUY/\nJ1n+ZJG6bQKBgQDU6OLYPoVctGjso3VC2O/YiLeMLnYQqoWBY/wpAim9lVb5enXn\nFOqOqHqVyedNRSwGolR9/L7DGfPEL6OoTkd4UqpLM6BK9HTLm1igk1WQIcmrvsOn\n5jjuZgQRG5hXtxLSuBc/BA+VpQFRGyjoz8Sz0m0WoBAgdRZ4lIruK95E+wKBgGwV\n0jIuNoCLZN7GWMFMYfiemFh6J8mgbJSPan3vOqoVaDF4A5gldwCOUEiWblZ6y5go\ns3MVtFJQna9hEnOxPWmq2RBuTwtt7PVZ8qHks1SH9tzlo4Bx92YXm5y6gqDdbRp+\n+Hmlsyo9fE0Aa7RK94F48+y4REMTqoaqAN+z5i/5AoGBANpWbeTDazl42/1uLGkY\nhZPSFNMxkRYkvtu4d05RceWdUhcuv7RrsS04/aKiRYjT9hwDDGiUCluanYaT1kzq\nK8+jtiRvmCqrQyqRwXQXdUys9+ZPhryWh0KoUDBMu35vHUL85ixgW3TJSFOHBZqF\n+P5TDw9oJ85kIext93j4PQj3\n-----END PRIVATE KEY-----\n",
+  "client_email": "stream-play-pt@streamplay-pt-ktpc.iam.gserviceaccount.com",
+  "client_id": "107964998134008612388",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stream-play-pt%40streamplay-pt-ktpc.iam.gserviceaccount.com"
+}

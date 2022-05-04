@@ -171,7 +171,9 @@ const ZDGConnection = async () => {
    //    })
 
    // verificar numero
-   app.post('/verificar', [
+  
+     // verificar numero
+     app.post('/verificar', [
       body('jid').notEmpty()
    ], async (req, res) => {
       const errors = validationResult(req).formatWith(({
@@ -210,7 +212,6 @@ const ZDGConnection = async () => {
    }
 
    })
-
 
    // Send message
    app.post('/message', [
@@ -279,85 +280,84 @@ const ZDGConnection = async () => {
 
    });
 
-
-      // Send message
-      app.post('/message-disparo', [
-         body('jid').notEmpty(),
-         body('message').notEmpty(),
-      ], async (req, res) => {
-         const errors = validationResult(req).formatWith(({
-         msg
-         }) => {
-         return msg;
-         });
-         if (!errors.isEmpty()) {
-         return res.status(422).json({
-            status: false,
-            message: errors.mapped()
-         });
-         }
-      
-         const jid = req.body.jid;
-         const numberDDI = jid.substr(0, 2);
-         const numberDDD = jid.substr(2, 2);
-         const numberUser = jid.substr(-8, 8);
-         const message = req.body.message;
-   
-         if (numberDDI !== '55') {
-            ZDGsock.sendMessage(jid, { text: message }).then(response => {
-               res.status(200).json({
-                  status: true,
-                  response: response
-               });
-               }).catch(err => {
-               res.status(500).json({
-                  status: false,
-                  response: err
-               });
-               });
-         }
-         if (numberDDI === '55' && numberDDD <= 30) {
-            const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
-            ZDGsock.sendMessage(numberZDG, { text: message }).then(response => {
-               res.status(200).json({
-                  status: true,
-                  response: response
-               });
-               }).catch(err => {
-               res.status(500).json({
-                  status: false,
-                  response: err
-               });
-               });
-         }
-         if (numberDDI === '55' && numberDDD > 30) {
-            const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
-            ZDGsock.sendMessage(numberZDG, { text: message }).then(response => {
-               res.status(200).json({
-                  status: true,
-                  response: response
-               });
-               }).catch(err => {
-               res.status(500).json({
-                  status: false,
-                  response: err
-               });
-               });
-         }
-   
+   // Send message - disparo
+   app.post('/message-disparo', [
+      body('jid').notEmpty(),
+      body('message').notEmpty(),
+   ], async (req, res) => {
+      const errors = validationResult(req).formatWith(({
+      msg
+      }) => {
+      return msg;
       });
+      if (!errors.isEmpty()) {
+      return res.status(422).json({
+         status: false,
+         message: errors.mapped()
+      });
+      }
+   
+      const jid = req.body.jid;
+      const numberDDI = jid.substr(0, 2);
+      const numberDDD = jid.substr(2, 2);
+      const numberUser = jid.substr(-8, 8);
+      const message = req.body.message;
+
+      if (numberDDI !== '55') {
+         ZDGsock.sendMessage(jid, { text: message }).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+      if (numberDDI === '55' && numberDDD <= 30) {
+         const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
+         ZDGsock.sendMessage(numberZDG, { text: message }).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+      if (numberDDI === '55' && numberDDD > 30) {
+         const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
+         ZDGsock.sendMessage(numberZDG, { text: message }).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+
+   });
 
    // Send button
    app.post('/button', [
       body('jid').notEmpty(),
       body('text').notEmpty(),
-      body('footer').notEmpty(),
-      body('id1').notEmpty(),
+      // body('footer').notEmpty(),
+      // body('id1').notEmpty(),
       // body('id2').notEmpty(),
       // body('id3').notEmpty(),
       // body('displaytext1').notEmpty(),
-      // body('displaytext2').notEmpty(),
-      // body('displaytext3').notEmpty(),
+      // body('button1').notEmpty(),
+      // body('button2').notEmpty(),
    ], async (req, res) => {
       const errors = validationResult(req).formatWith(({
       msg
@@ -376,21 +376,21 @@ const ZDGConnection = async () => {
       const numberDDD = jid.substr(2, 2);
       const numberUser = jid.substr(-8, 8);
       const text = req.body.text;
-      const footer = req.body.footer;
-      const id1 = req.body.id1;
-      const id2 = req.body.id2;
-      const id3 = req.body.id3;
-      const displaytext1 = req.body.displaytext1;
-      const displaytext2 = req.body.displaytext2;
+      // const footer = req.body.footer;
+      // const id1 = req.body.id1;
+      // const id2 = req.body.id2;
+      // const id3 = req.body.id3;
+      // const displaytext1 = req.body.button1;
+      // const displaytext2 = req.body.button2;
       // const displaytext3 = req.body.displaytext3;
       const buttons = [
-         { buttonId: id1, buttonText: { displayText: displaytext1 }, type: 1 },
-         { buttonId: id2, buttonText: { displayText: displaytext2 }, type: 1 },
+         { buttonId: "1", buttonText: { displayText: req.body.button1 }, type: 1 },
+         { buttonId: "2", buttonText: { displayText: req.body.button2 }, type: 1 },
          // { buttonId: id3, buttonText: { displayText: displaytext3 }, type: 1 },
       ]
       const buttonsMessage = {
          text: text,
-         footer: footer,
+         footer: "Escolha uma opção:",
          buttons: buttons,
          headerType: 1
       }
@@ -530,7 +530,7 @@ const ZDGConnection = async () => {
 
    });
 
-   // Send texto e imagem
+   // Send imagem e texto
    app.post('/Imagem-texto', [
       body('jid').notEmpty(),
       body('message').notEmpty(),
@@ -561,7 +561,186 @@ const ZDGConnection = async () => {
          image: {
             url: imagem    // './assets/icone.png',
             // url: 'https://zapdasgalaxias.com.br/wp-content/uploads/elementor/thumbs/icone-2-pdi31v9k8vtxs105ykbgfpwsyu37k4387us769we0w.png'
-         }
+         },
+         
+      }
+
+
+      if (numberDDI !== '55') {
+         ZDGsock.sendMessage(jid, ZDGImagem).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+      if (numberDDI === '55' && numberDDD <= 30) {
+         const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+      if (numberDDI === '55' && numberDDD > 30) {
+         const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+
+   });
+
+   // Send texto e imagem e botoes
+   app.post('/Imagem-texto-botoes', [
+
+      body('jid').notEmpty(),
+      body('caption').notEmpty(),
+      body('image').notEmpty(),
+      body('button1').notEmpty(),
+      body('button2').notEmpty(),
+
+
+   ], async (req, res) => {
+      const errors = validationResult(req).formatWith(({
+      msg
+      }) => {
+      return msg;
+      });
+      if (!errors.isEmpty()) {
+      return res.status(422).json({
+         status: false,
+         message: errors.mapped()
+      });
+      }
+   
+      const jid = req.body.jid;
+      const numberDDI = jid.substr(0, 2);
+      const numberDDD = jid.substr(2, 2);
+      const numberUser = jid.substr(-8, 8);
+      const caption = req.body.caption;
+      const image = req.body.image;
+
+      const ZDGImagem = {
+         // opicional
+         caption: caption,
+         // opicional
+         footer: 'Escolha uma opção:',
+         image: {
+            url: image },
+         buttons: [
+            { buttonId: '1', buttonText: { displayText: req.body.button1 }, type: 1 },
+            { buttonId: '2', buttonText: { displayText: req.body.button2 }, type: 1 },
+         ]
+         
+      }
+
+
+      if (numberDDI !== '55') {
+         ZDGsock.sendMessage(jid, ZDGImagem).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+      if (numberDDI === '55' && numberDDD <= 30) {
+         const numberZDG = "55" + numberDDD + "9" + numberUser + "@s.whatsapp.net";
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+      if (numberDDI === '55' && numberDDD > 30) {
+         const numberZDG = "55" + numberDDD + numberUser + "@s.whatsapp.net";
+         ZDGsock.sendMessage(numberZDG, ZDGImagem).then(response => {
+            res.status(200).json({
+               status: true,
+               response: response
+            });
+            }).catch(err => {
+            res.status(500).json({
+               status: false,
+               response: err
+            });
+            });
+      }
+
+   });
+
+   // Send texto e imagem e botoes
+   app.post('/video-texto-botoes', [
+
+      body('jid').notEmpty(),
+      body('caption').notEmpty(),
+      body('video').notEmpty(),
+      body('button1').notEmpty(),
+      body('button2').notEmpty(),
+
+
+   ], async (req, res) => {
+      const errors = validationResult(req).formatWith(({
+      msg
+      }) => {
+      return msg;
+      });
+      if (!errors.isEmpty()) {
+      return res.status(422).json({
+         status: false,
+         message: errors.mapped()
+      });
+      }
+   
+      const jid = req.body.jid;
+      const numberDDI = jid.substr(0, 2);
+      const numberDDD = jid.substr(2, 2);
+      const numberUser = jid.substr(-8, 8);
+      const caption = req.body.caption;
+      const video = req.body.video;
+
+      const ZDGImagem = {
+         // opicional
+         caption: caption,
+         // opicional
+         footer: 'Escolha uma opção:',
+         video: {
+            url: video },
+         buttons: [
+            { buttonId: '1', buttonText: { displayText: req.body.button1 }, type: 1 },
+            { buttonId: '2', buttonText: { displayText: req.body.button2 }, type: 1 },
+         ]
+         
       }
 
 
@@ -798,6 +977,7 @@ const ZDGConnection = async () => {
 
    });
 
+
    // Send PDF
    app.post('/PDF', [
       body('jid').notEmpty(),
@@ -953,7 +1133,7 @@ const ZDGConnection = async () => {
    
    });
 
-   
+
 }
 
 ZDGConnection()
@@ -962,6 +1142,7 @@ ZDGConnection()
 app2.get('/status',(request,resposta_status)=>{
    // return resposta_status.json({message : 'servidor esta rodando tranquilo botpost'})
    return resposta_status.json({message :  status_server})
+
 
 })
 server2.listen(port_get,function() {
