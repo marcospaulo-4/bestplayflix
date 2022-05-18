@@ -15,6 +15,7 @@ const ZDGPath = './ZDGSessions/';
 const ZDGAuth = 'auth_info.json';
 const {WebhookClient} = require('@google-cloud/dialogflow');
 const dialogflow = require('@google-cloud/dialogflow');
+const exec = require('child_process').exec;
 app2.use(express.json());
 
 app.use(express.json());
@@ -1139,6 +1140,25 @@ app2.get('/status',(request,resposta_status)=>{
 
 
 })
+
+app2.get('/reload',(request,resposta_status)=>{
+    // return resposta_status.json({message : 'servidor esta rodando tranquilo botpost'})
+    const reload = exec('pm2 reload botMarcos.js');
+    reload.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+      });
+      
+    return resposta_status.json({message :  "servidor reinicializado" })
+ 
+ 
+ })
+
+
+
+
+
+
+
 server2.listen(port_get,function() {
    console.log('status do servidor rodando na porta: ' + port_get);
  });

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "amilar-best-play-ixnc",
+  "private_key_id": "819b4f860093988baedb7c6a4913ba9e54f17bff",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2x/O6dp7DERRu\noVL+daDA8KYJMlVU0+uKNxqagZkRh3Td0Dfb9cB9Az9L/En7kl8Ob2dk50sfS3gc\n7mjBLzgo1xFm7zpatnxIqNrY022kOSP8ZHWkSyC/f1fuUdveoFiuhF2OkJjT51iS\nJDCzul/0i1uBf17/VcdGq4OPOl2f3YQzCEj3pJnksUU9nmL/YO0BfOQlkM1Uy0Ox\nP7HHLTkeRxOfyx2tv2w9hBWfh6t9zl2jVdv3pb9mWVNfhZ09jYFbLxqUodMP61xV\nBfxGuvdsfuHva2Tjij1c9PeTjgpYKXyjoO1zivG/al3nrmyzei9p1ZjZb6GxeN8L\n7kpP+RpHAgMBAAECggEACn5XQUy/F57a5/EOFTrGlF0cgymnGXwjKSe5uMYY9hcr\nP/LMyi2FNAgkMaYVz0Ibf/YoXvQibXUFO8/6JqEh3cJfJuQ0GvIgF4HOMqWMxWFc\nbgiMcna3thbHAxEjCNh2zuodfupRQ9Uj0hwOybq4+I6pnbkkyI7xpl6Bao8kweE6\na1UtUehlqSmJUkaNPDCvJhbM56DF/lvfSlvoTjcfGJTAUCB7OGtamOr3O0R4LLsF\n/sB/fZjwt6dBDqCj28WdE6DDLpSCRfWi6bfQmwrlPd8LOd7+tn209bNJBchVopsW\nDf3qAZPfGrd0t61PEFaPuSFnOOm2M8JO2ZoHD6+ITQKBgQDmR0+xFjthaNv6fq2B\nTaS6F4z4brOAzNwfE4A0WKnb8QlvZsRB0eIsHWQMXAIyvI7BlmAxCd8fzEMS5jhi\nM0c+C99/2Gr9/kYkeUz0VEmpBONjh/S31yjhvx/ETGKVyAYlikukhssSWbvK4Bsg\nY+apHbuzj4zKApBgVTBnCs03EwKBgQDLMnnZoqElDea+zPc+HCetxnU2FjXPf60r\nEHMjVquN6duRuWXjCzcHKFqKUcvLek2tsDAQO9KCTesQ9L8hXG87tPk07JyP1yvY\nAAGs9BNS6UWe7tkOT/MI2jOXJ+pHWsecj/Z4sHl5F9/OP878l5aDoXLVcqV/KlTx\nb2kH7d6yfQKBgQCNuc/7TpKHVjElT3fbv/ylJ790WzWRDQRg//CExxjrq8LB1H7v\nf4xy2DfuP2Z+8Xvu+20CYW/4sw+I/zYugh7Tuhz5IypeXnOvGRTav1GCe+azKEbe\nKscXgTi86MI4Kx5VVnNNtEQhbCbfKuSnH7Uj2o/eaHgfEErpbyTWFljNDwKBgQCu\ny/AoOQ94qbm6nuV9h4jWo2dHLNoDcujLp+30E2WmwesBM8SjCI3A2YTxgiXXF5Hk\n/TCLdnrDXzX8sx4MG9EQQsEyNu0Di+0Kdg768kgBRex/KSaNelcuYU6KFGskEMKw\nOuOitOT6N4Buk1OC1QBEockANwyJFShXPSjUCltNnQKBgEohTWhka1MVNBkHfStB\nHllg68mHBfUZD+7bf0DhAW7FhAlU5PqSbiAFZSMuM8PZXopz11fFy5ueEF8TDRNT\nUsbkGOJo33z0CVqyWQWPfwHEoCs9S1Nah+HmyZsHiuhFjUT/Y6ctXc2KK2lhHeNo\nDPl1esyPgHHOIHMQ7N1H7nwR\n-----END PRIVATE KEY-----\n",
+  "client_email": "amila-bestplay@amilar-best-play-ixnc.iam.gserviceaccount.com",
+  "client_id": "106580371879746175751",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/amila-bestplay%40amilar-best-play-ixnc.iam.gserviceaccount.com"
+}

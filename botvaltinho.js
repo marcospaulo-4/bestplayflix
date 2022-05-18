@@ -15,6 +15,7 @@ const ZDGPath = './ZDGSessions/';
 const ZDGAuth = 'auth_info_valtinho.json';
 const {WebhookClient} = require('@google-cloud/dialogflow');
 const dialogflow = require('@google-cloud/dialogflow');
+const exec = require('child_process').exec;
 app2.use(express.json());
 
 app.use(express.json());
@@ -23,7 +24,7 @@ app.use(express.urlencoded({
 }));
 
 
-const sessionClient = new dialogflow.SessionsClient({keyFilename: "streamplay-ljmh-ea66757d5edf.json"});
+const sessionClient = new dialogflow.SessionsClient({keyFilename: "streamplay-pt-ktpc-898861ea5846.json"});
 
 
 async function detectIntent(
@@ -149,13 +150,13 @@ const ZDGConnection = async () => {
          if (!ZDGGroupCheck(jid) && !msg.key.fromMe && jid !== 'status@broadcast') {
             console.log("© BOT-ZDG - MENSAGEM : ", msg)
             // ZDGsock.sendReadReceipt(jid, msg.key.participant, [msg.key.id]) 
-            let textoResposta = await executeQueries("streamplay-ljmh", jid, [JSON.stringify(msg.message.conversation)], 'pt-BR');
+            let textoResposta = await executeQueries("streamplay-pt-ktpc", jid, [JSON.stringify(msg.message.conversation)], 'pt-BR');
             
             
-               console.log('mensagem recebida ',textoResposta)
+               console.log('mensagem recebida texto resposta ',textoResposta)
    
    
-               if (textoResposta === ''  ) {
+               if (textoResposta === ' ' || textoResposta === '' || textoResposta === '{}' || textoResposta === undefined) {
                   console.log('sem resposta')
                }
                else{
@@ -1139,6 +1140,15 @@ app2.get('/status',(request,resposta_status)=>{
 
 
 })
+app2.get('/reload',(request,resposta_status)=>{
+    // return resposta_status.json({message : 'servidor esta rodando tranquilo botpost'})
+    const reload = exec('pm2 reload botvaltinho.js');
+    reload.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+      });
+    return resposta_status.json({message :  "servidor reinicializado" })
+ })
+
 server2.listen(port_get,function() {
    console.log('status do servidor rodando na porta: ' + port_get);
  });
